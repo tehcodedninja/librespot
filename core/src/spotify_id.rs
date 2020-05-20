@@ -22,7 +22,7 @@ const BASE62_DIGITS: &'static [u8] =
 const BASE16_DIGITS: &'static [u8] = b"0123456789abcdef";
 
 impl SpotifyAudioType {
-    fn to_string(&self) -> &str {
+    pub fn to_string(&self) -> &str {
         match self {
             SpotifyAudioType::Track => {
                 return "track";
