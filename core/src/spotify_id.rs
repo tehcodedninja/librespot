@@ -8,14 +8,6 @@ pub enum SpotifyAudioType {
     NonPlayable,
 }
 
-impl fmt::Display for SpotifyAudioType {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{:?}", self)
-        // or, alternatively:
-        // fmt::Debug::fmt(self, f)
-    }
-}
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct SpotifyId {
     pub id: u128,
@@ -28,6 +20,24 @@ pub struct SpotifyIdError;
 const BASE62_DIGITS: &'static [u8] =
     b"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const BASE16_DIGITS: &'static [u8] = b"0123456789abcdef";
+
+impl SpotifyAudioType {
+    fn to_string(&self) -> &str {
+        match self {
+            SpotifyAudioType::Track => {
+                return "track";
+            }
+
+            SpotifyAudioType::Podcast => {
+                return "podcast";
+            }
+
+            SpotifyAudioType::NonPlayable => {
+                return "nonplayable";
+            }
+        }
+    }
+}
 
 impl SpotifyId {
     fn as_track(n: u128) -> SpotifyId {
