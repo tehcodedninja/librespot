@@ -25,15 +25,15 @@ impl SpotifyAudioType {
     pub fn to_string(&self) -> String {
         match self {
             SpotifyAudioType::Track => {
-                return std::str::from("track");
+                return "track".to_string();
             }
 
             SpotifyAudioType::Podcast => {
-                return std::str::from("podcast");
+                return "podcast".to_string();
             }
 
             SpotifyAudioType::NonPlayable => {
-                return std::str::from("nonplayable");
+                return "nonplayable".to_string();
             }
         }
     }
